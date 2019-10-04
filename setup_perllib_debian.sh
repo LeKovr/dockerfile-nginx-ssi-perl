@@ -2,7 +2,6 @@
 apt-get -y install \
     libexception-class-perl \
     libclass-accessor-perl \
-    libapache-dbi-perl \
     libdata-formvalidator-perl \
     libnet-ip-perl \
     libtemplate-perl \
@@ -34,15 +33,31 @@ apt-get -y install \
     libimager-perl \
     libinline-perl \
     libhpdf-dev \
-    libperl-dev gcc make \
+    libperl-dev \
     libjson-rpc-perl \
+    libjson-perl libwww-perl cpanminus \
+    libfcgi-procmanager-perl libcache-fastmmap-perl \
+    libcgi-simple-perl libdbi-perl libdbd-pg-perl libfcgi-perl \
+    liblocale-maketext-lexicon-perl liblocale-maketext-simple-perl \
+    libtemplate-perl  libipc-shareable-perl liburi-perl \
+    libtext-multimarkdown-perl libtext-diff-perl \
+    libany-moose-perl libxml-simple-perl \
+    libsoap-lite-perl libio-string-perl \
+    libfcgi-client-perl \
+    libmime-tools-perl \
+    libperl6-junction-perl \
+    libxml-compile-perl \
+    desktop-file-utils \
     || exit 1
+
+update-desktop-database
 
 cpanm enum \
   && cpanm Toolbox::Simple \
   && cpanm Attribute::Property \
   && cpanm URI::Escape::JavaScript \
   && cpanm PDF::Haru \
+  && cpanm FCGI::Daemon \
   && cpanm -n http://www.cpan.org/authors/id/T/TW/TWINKLE/URI-UTF8-Punycode-1.05.tar.gz \
   && cpanm http://www.cpan.org/authors/id/S/SA/SAMTREGAR/HTML-Template-2.9.tar.gz \
   || { cat /root/.cpanm/build.log && exit 1 ; }

@@ -18,7 +18,6 @@ root=$PWD
 
 function gracefulShutdown {
   echo "Shutting down!"
-  /usr/local/apache/bin/apachectl stop
 
 }
 
@@ -32,8 +31,7 @@ serve() {
 
   trap gracefulShutdown SIGTERM
 
-  /usr/local/apache/bin/apachectl start
-  /usr/bin/supervisord
+  /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 
 }
 
